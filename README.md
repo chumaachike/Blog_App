@@ -5,47 +5,59 @@
 > In this project we are creating a blog app 
 
 
-## Built With
+### Built With
 
-- Ruby on Raiils 
-- Postgres
+- Ruby on Rails
+- Rspec
+- SQL 
+- Postgresql
+
 
 ## Live Demo
 
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy, follow these simple steps.
 
 ### Prerequisites
 
-- Visual Studio code or any Code Editor.
+Web browser installed
 
 ### Setup
 
-#### Download the file to local directory
+Cloning a repository
 
-- if you have already insall github in your local pc run:
+- On GitHub.com, navigate to the main page of the repository;
 
-- Or download the zip file from the github directory.
+- Above the list of files, click "Code" button;
 
-### Run the project locally
+- Copy the URL to clone the repository. 
 
-```sh
-Bundle install
-```
+  - To clone the repository using HTTPS : `https://github.com/chumaachike/Blog_App.git`
 
-```sh
-npm start
-```
+  - To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority : `git@github.com:ElsonOtake/Blog_App.git`
 
-#### Linters tests
+  - To clone a repository using GitHub CLI : `gh repo clone chumaachike/Blog_App`
 
-- Eslint
-- Stylelint
-- node_modules checker
+- Open Terminal;
 
-## Authors
+- Change the current working directory to the location where you want the cloned directory;
+
+- Type `git clone`, and then paste the URL you copied earlier.
+
+### Rspec Tests
+
+To run the tests:
+
+- Open your terminal;
+
+- Go to your application folder;
+
+- run `rspec spec/requests`.
+
+
+## Author
 
 👤 **Achike Chuma Edward**
 
@@ -54,20 +66,23 @@ npm start
 - LinkedIn: [Edward Achike](https://www.linkedin.com/in/edwardachike/)
 
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
+
 ## Acknowledgments
 
-- Aknowledgement goes to every team member who contributed to this project
+- Microverse
+- W3Schools
+- Stack Overflow
 
 
 ## 📝 License
