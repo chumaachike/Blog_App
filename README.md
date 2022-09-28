@@ -36,7 +36,7 @@ Cloning a repository
 
   - To clone the repository using HTTPS : `https://github.com/chumaachike/Blog_App.git`
 
-  - To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority : `git@github.com:ElsonOtake/Blog_App.git`
+  - To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority : `git@github.com:chumaachike/Blog_App.git`
 
   - To clone a repository using GitHub CLI : `gh repo clone chumaachike/Blog_App`
 
@@ -45,6 +45,37 @@ Cloning a repository
 - Change the current working directory to the location where you want the cloned directory;
 
 - Type `git clone`, and then paste the URL you copied earlier.
+
+### install required gems
+
+To install require gems:
+
+- Open your terminal;
+
+- Go to your application folder;
+
+- run `bundle install`.
+
+### create and run database migrations
+
+To create and run database migrations 
+
+- Open your terminal;
+
+- Go to your application folder;
+
+- run `rails db:create`,
+
+- run `rails db:migrate`.
+
+
+### add database credentials
+
+To add database credentials
+
+- Go to the Config folder 
+
+- Edit Username and Password of defualt to suit Username and Password of your Postgres
 
 ### Rspec Tests
 
