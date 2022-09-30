@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @current_user = current_user
-    post = Post.new(self.post_params)
+    post = Post.new(post_params)
     post.author = current_user
     respond_to do |format|
       format.html do
