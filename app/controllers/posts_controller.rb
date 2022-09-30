@@ -1,4 +1,6 @@
+require_relative '../helpers/posts_helper'
 class PostsController < ApplicationController
+  include PostsHelper
   def index
     @current_user = current_user
     @user = User.find(params[:user_id])
@@ -14,16 +16,11 @@ class PostsController < ApplicationController
   def new
     @current_user = current_user
     @post = Post.new
-    respond_to do |format|
-      format.html { render :new, locals: { post: @post } }
-    end
   end
 
   def create
     @current_user = current_user
-    post = Post.new
-    post.title = params[:user_posts][:title]
-    post.text = params[:user_posts][:text]
+    post = Post.new(self.post_params)
     post.author = current_user
     respond_to do |format|
       format.html do

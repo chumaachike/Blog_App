@@ -1,4 +1,6 @@
+require_relative '../helpers/comments_helper'
 class CommentsController < ApplicationController
+  include CommentsHelper
   def new
     @comment = Comment.new
   end
@@ -6,7 +8,7 @@ class CommentsController < ApplicationController
   def create
     post = Post.find(params[:post_id])
     user = User.find(params[:user_id])
-    comment = Comment.new(params.require(:user_post_comments).permit(:text))
+    comment = Comment.new(self.post_params)
     comment.post = post
     comment.author = current_user
     respond_to do |format|

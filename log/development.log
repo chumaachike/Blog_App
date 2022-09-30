@@ -8349,3 +8349,178 @@ Processing by PostsController#show as TURBO_STREAM
 Completed 200 OK in 96ms (Views: 54.9ms | ActiveRecord: 11.3ms | Allocations: 14623)
 
 
+Started GET "/" for ::1 at 2022-09-30 08:50:57 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:1
+  Rendered partials/_user.html.erb (Duration: 0.7ms | Allocations: 167)
+  Rendered partials/_user.html.erb (Duration: 0.2ms | Allocations: 61)
+  Rendered users/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1244)
+  Rendered layout layouts/application.html.erb (Duration: 52.3ms | Allocations: 16065)
+Completed 200 OK in 217ms (Views: 54.6ms | ActiveRecord: 23.3ms | Allocations: 24377)
+
+
+Started GET "/users/1" for ::1 at 2022-09-30 08:51:02 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered partials/_user.html.erb (Duration: 0.6ms | Allocations: 72)
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/models/user.rb:9:in `recent_posts'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/models/user.rb:9:in `recent_posts'
+  Rendered partials/_post.html.erb (Duration: 2.4ms | Allocations: 1173)
+  Rendered partials/_post.html.erb (Duration: 1.3ms | Allocations: 815)
+  Rendered partials/_post.html.erb (Duration: 1.2ms | Allocations: 815)
+  Rendered users/show.html.erb within layouts/application (Duration: 23.4ms | Allocations: 9046)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 11464)
+Completed 200 OK in 38ms (Views: 28.2ms | ActiveRecord: 2.7ms | Allocations: 13576)
+
+
+Started GET "/users/1/posts/new" for ::1 at 2022-09-30 08:51:06 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1169)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 3692)
+Completed 200 OK in 51ms (Views: 33.4ms | ActiveRecord: 0.9ms | Allocations: 5208)
+
+
+Started POST "/users/1/posts" for ::1 at 2022-09-30 08:51:11 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_posts"=>{"title"=>"wsjwj", "text"=>"`jkdsjsd"}, "commit"=>"Create Post", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block (2 levels) in create'
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "wsjwj"], ["text", "`jkdsjsd"], ["comments_counter", 0], ["likes_counter", 0], ["created_at", "2022-09-30 07:51:11.989822"], ["updated_at", "2022-09-30 07:51:11.989822"], ["author_id", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block (2 levels) in create'
+  [1m[36mPost Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/models/post.rb:16:in `update_user_counter'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "post_counter" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["post_counter", 6], ["updated_at", "2022-09-30 07:51:11.997138"], ["id", 1]]
+  ↳ app/models/post.rb:16:in `update_user_counter'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block (2 levels) in create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 25ms (ActiveRecord: 4.9ms | Allocations: 7052)
+
+
+Started GET "/users/1" for ::1 at 2022-09-30 08:51:12 +0100
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered partials/_user.html.erb (Duration: 0.2ms | Allocations: 80)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/models/user.rb:9:in `recent_posts'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/models/user.rb:9:in `recent_posts'
+  Rendered partials/_post.html.erb (Duration: 1.7ms | Allocations: 990)
+  Rendered partials/_post.html.erb (Duration: 1.2ms | Allocations: 814)
+  Rendered partials/_post.html.erb (Duration: 1.0ms | Allocations: 815)
+  Rendered users/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 4545)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 6859)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 1.1ms | Allocations: 8315)
+
+
+Started GET "/users/1/posts/new" for ::1 at 2022-09-30 09:04:11 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 972)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 15551)
+Completed 200 OK in 193ms (Views: 37.3ms | ActiveRecord: 23.0ms | Allocations: 27299)
+
+
+Started POST "/users/1/posts" for ::1 at 2022-09-30 09:04:15 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_posts"=>{"title"=>"", "text"=>""}, "commit"=>"Create Post", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.4ms | Allocations: 1542)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: post):
+  
+app/controllers/posts_controller.rb:22:in `create'
+Started GET "/users/1/posts/new" for ::1 at 2022-09-30 09:04:15 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 724)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3061)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 0.3ms | Allocations: 4002)
+
+
+Started POST "/users/1/posts" for ::1 at 2022-09-30 09:04:44 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_posts"=>{"title"=>"dgdg", "text"=>"hh"}, "commit"=>"Create Post", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block (2 levels) in create'
+  [1m[36mPost Create (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "dgdg"], ["text", "hh"], ["comments_counter", 0], ["likes_counter", 0], ["created_at", "2022-09-30 08:04:46.257945"], ["updated_at", "2022-09-30 08:04:46.257945"], ["author_id", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block (2 levels) in create'
+  [1m[36mPost Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/models/post.rb:16:in `update_user_counter'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "post_counter" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["post_counter", 7], ["updated_at", "2022-09-30 08:04:46.269963"], ["id", 1]]
+  ↳ app/models/post.rb:16:in `update_user_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block (2 levels) in create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 84ms (ActiveRecord: 31.4ms | Allocations: 15889)
+
+
+Started GET "/users/1" for ::1 at 2022-09-30 09:04:46 +0100
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered partials/_user.html.erb (Duration: 0.4ms | Allocations: 155)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/models/user.rb:9:in `recent_posts'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/models/user.rb:9:in `recent_posts'
+  Rendered partials/_post.html.erb (Duration: 2.3ms | Allocations: 1166)
+  Rendered partials/_post.html.erb (Duration: 1.3ms | Allocations: 816)
+  Rendered partials/_post.html.erb (Duration: 1.4ms | Allocations: 814)
+  Rendered users/show.html.erb within layouts/application (Duration: 13.9ms | Allocations: 5010)
+  Rendered layout layouts/application.html.erb (Duration: 55.0ms | Allocations: 19597)
+Completed 200 OK in 66ms (Views: 56.4ms | ActiveRecord: 1.3ms | Allocations: 22119)
+
+
