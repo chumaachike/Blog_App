@@ -10,13 +10,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
   end
+
   def new
     @current_user = current_user
     @post = Post.new
     respond_to do |format|
-      format.html { render :new, locals: {post: @post}}
+      format.html { render :new, locals: { post: @post } }
     end
   end
+
   def create
     @current_user = current_user
     post = Post.new
