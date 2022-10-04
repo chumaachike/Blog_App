@@ -55,7 +55,6 @@ RSpec.describe 'User post index page', type: :feature do
       expect(page).to_not have_content('This is my third post')
     end
 
-
     it 'Show how many comments a post has' do
       visit user_posts_path(@lilly)
       expect(page).to have_content('Comments: 5')
