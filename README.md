@@ -96,6 +96,9 @@ To run the tests:
 - Twitter: [@AchikeChuma](https://twitter.com/AchikeChuma)
 - LinkedIn: [Edward Achike](https://www.linkedin.com/in/edwardachike/)
 
+- GitHub: [@Brenda309](https://github.com/Brenda309)
+- Twitter: [@BrendaWihogora](https://twitter.com/BrendaWihogora)
+- LinkedIn: [BrendaWihogora](https://linkedin.com/in/BrendaWihogora/)
 
 ## 🤝 Contributing
 
