@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'posts/index'
   get 'posts/show'
   root 'users#index'
+
+  get '/users/:user_id/posts/:post_id/comments/:id', to: 'comments#show', as: 'user_post_comment'
 end
