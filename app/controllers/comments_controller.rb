@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def destroy
     user = User.find(params[:user_id])
     post = Post.find(params[:post_id])
